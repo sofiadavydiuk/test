@@ -14,13 +14,24 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #635058;
+  min-height: 8vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-footer {
+  background-color: #635058;
+  min-height: 8vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(6px + 2vmin);
   color: white;
 }
 
@@ -43,8 +54,20 @@
   flex-wrap: wrap;
 }
 
-.companie {
+.company {
   flex-basis: 25%;
   flex-grow: 0;
   margin: 0 10px;
+}
+
+.input-search {
+  margin: 10px;
+}
+
+.mail-icon {
+  margin-right: 20px !important;
+  transition: linear 0.3s;
+}
+.mail-icon:hover {
+  cursor: pointer !important;
 }
