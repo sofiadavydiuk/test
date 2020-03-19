@@ -2,7 +2,9 @@ import React, {useState} from 'react';
 import './App.css';
 
 import {connect} from 'react-redux';
-import {Container, Image, Item, Search} from 'semantic-ui-react'
+import {Container, Item, Search} from 'semantic-ui-react'
+
+import { ItemComp } from './components';
 
 const App = ({source}) => {
   const [searchPhrase, setSearchPhrase] = useState('');
@@ -23,18 +25,8 @@ const App = ({source}) => {
                 .filter((elem) =>
                   elem.title.toLowerCase().includes(searchPhrase.toLowerCase()) ||
                   elem.description.toLowerCase().includes(searchPhrase.toLowerCase()))
-                .map((elem) => (
-                  <Item key={elem.title + elem.description}>
-                    <Item.Image size="small" src={elem.image}/>
-                    <Item.Content>
-                      <Item.Header>{elem.title}</Item.Header>
-                      <Item.Meta>{elem.description}</Item.Meta>
-                      <Item.Description>
-                        <Image src="https://react.semantic-ui.com/images/wireframe/short-paragraph.png"/>
-                      </Item.Description>
-                      <Item.Extra>More</Item.Extra>
-                    </Item.Content>
-                  </Item>
+                .map(({id, ...props}) => (
+                  <ItemComp key={id} {...props} />
                 ))
             }
           </Item.Group>
