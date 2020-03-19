@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 
+import {connect} from 'react-redux';
 import {Container, Image, Item, Search} from 'semantic-ui-react'
 
 const App = ({source}) => {
@@ -18,7 +19,7 @@ const App = ({source}) => {
         <Container>
           <Item.Group>
             {
-              source
+              source.items
                 .filter((elem) =>
                   elem.title.toLowerCase().includes(searchPhrase.toLowerCase()) ||
                   elem.description.toLowerCase().includes(searchPhrase.toLowerCase()))
@@ -43,4 +44,8 @@ const App = ({source}) => {
   )
 };
 
-export default App;
+const mapStateToProps = ({source}) => ({
+  source,
+});
+
+export default connect(mapStateToProps)(App);

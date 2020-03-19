@@ -4,16 +4,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import _ from 'lodash';
-import faker from 'faker';
+import {Provider} from 'react-redux';
+import {store} from './+state';
 
-const source = _.times(300, () => ({
-  title: faker.company.companyName(),
-  description: faker.company.catchPhrase(),
-  image: faker.internet.avatar(),
-  price: faker.finance.amount(0, 100, 2, '$'),
-}));
-
-ReactDOM.render(<App source={source}/>, document.getElementById('root'));
+ReactDOM.render(
+  <Provider store={store}><App/></Provider>,
+  document.getElementById('root'));
 
 serviceWorker.unregister();
