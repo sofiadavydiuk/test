@@ -11,39 +11,43 @@ import {
     Icon
 } from "semantic-ui-react";
 
-function App() {
-    return (
-        <div className="App">
-            <header className="App-header">
-                {" "}
-                <div>
-                    <Input
-                        className="input-search"
-                        icon="search"
-                        placeholder="Search..."
-                    />
-                    <Popup
-                        content="Add your company to the list"
-                        trigger={<Button className="addCompany" icon="add" />}
-                    />
-                </div>
-            </header>
-            <body>
-            <FetchCompanies />
+class App extends React.Component {
 
-            {/* <MapExample numbers={numbers} /> */}
-            </body>
-            <footer className="App-footer">
-                <>
-                    <p>
-                        <Icon className="mail-icon" name="mail outline" />
-                        If you have any questions, please feel free to contact us at
-                        professional-company@gmail.com
-                    </p>
-                </>
-            </footer>
-        </div>
-    );
+    state = {
+      searchValue: " ",
+    };
+
+    filterData(value)  {
+        this.setState({searchValue: value});
+    };
+
+
+    render() {
+
+        //state = {searchValue: ''};
+
+        return (
+            <div className="App">
+                <header className="App-header">
+                    <div>
+                        <input type="text" onChange={(event => this.filterData(event.target.value))}/>
+                    </div>
+                </header>
+                <body>
+                <FetchCompanies searchValue={this.state.searchValue}/>
+                </body>
+                <footer className="App-footer">
+                    <>
+                        <p>
+                            <Icon className="mail-icon" name="mail outline"/>
+                            If you have any questions, please feel free to contact us at
+                            professional-company@gmail.com
+                        </p>
+                    </>
+                </footer>
+            </div>
+        );
+    }
 }
 
 export default App;

@@ -2,6 +2,10 @@ import React from "react";
 import { Image } from "semantic-ui-react";
 
 export default class FetchComanies extends React.Component {
+  props = {
+    searchValue: '',
+  };
+
   state = {
     loading: true,
     company: null,
@@ -15,16 +19,16 @@ export default class FetchComanies extends React.Component {
 
     // this.setState({ company: data[0], loading: false });
     this.setState({ data: data });
+    console.log('test');
 
-    // console.log("data", data);
-    // console.log("data[0]", data[0]);
-    // console.log(this.state.company;
+
   }
 
   render() {
+    console.log(this.props.searchValue);
     return (
         <div className="companies">
-          {this.state.data.map((item, index) => (
+          {this.state.data.filter(item => item.name.includes(this.props.searchValue)).map((item, index) => (
               <>
                 <div className="company">
                   <Image
