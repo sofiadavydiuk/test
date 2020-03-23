@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import FetchCompanies from "./FetchCompanies";
+import Example1 from "./Example1";
 import {
     Input,
     Header,
@@ -14,34 +15,36 @@ import {
 function App() {
     return (
         <div className="App">
-            <header className="App-header">
-                {" "}
-                <div>
-                    <Input
-                        className="input-search"
-                        icon="search"
-                        placeholder="Search..."
-                    />
-                    <Popup
-                        content="Add your company to the list"
-                        trigger={<Button className="addCompany" icon="add" />}
-                    />
-                </div>
-            </header>
-            <body>
-            <FetchCompanies />
+            <Example1 />
+            {/*<header className="App-header">*/}
+            {/*    {" "}*/}
+            {/*    <div>*/}
+            {/*        <Input*/}
+            {/*            className="input-search"*/}
+            {/*            icon="search"*/}
+            {/*            placeholder="Search..."*/}
+            {/*        />*/}
+            {/*        <Popup*/}
+            {/*            content="Add your company to the list"*/}
+            {/*            trigger={<Button className="addCompany" icon="add" />}*/}
+            {/*        />*/}
+            {/*    </div>*/}
+            {/*</header>*/}
+            {/*<body>*/}
+            {/*<FetchCompanies />*/}
 
             {/* <MapExample numbers={numbers} /> */}
-            </body>
-            <footer className="App-footer">
-                <>
-                    <p>
-                        <Icon className="mail-icon" name="mail outline" />
-                        If you have any questions, please feel free to contact us at
-                        professional-company@gmail.com
-                    </p>
-                </>
-            </footer>
+            {/*</body>*/}
+
+            {/*<footer className="App-footer">*/}
+            {/*    <>*/}
+            {/*        <p>*/}
+            {/*            <Icon className="mail-icon" name="mail outline" />*/}
+            {/*            If you have any questions, please feel free to contact us at*/}
+            {/*            professional-company@gmail.com*/}
+            {/*        </p>*/}
+            {/*    </>*/}
+            {/*</footer>*/}
         </div>
     );
 }
