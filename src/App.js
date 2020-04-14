@@ -1,56 +1,29 @@
 import React from "react";
-import "./App.css";
-import FetchCompanies from "./FetchCompanies";
-import {
-    Input,
-    Header,
-    Container,
-    Segment,
-    Button,
-    Popup,
-    Icon
-} from "semantic-ui-react";
+import ReactDOM from "react-dom";
+import faker from "faker";
+import CommentDetail from "./CommentDetail";
+import ApprovalCard from "./ApprovalCard";
 
-class App extends React.Component {
+const App = () => {
+    return (
+        <>
+        <div className="ui container comments">
 
-    state = {
-      searchValue: " ",
-    };
+            <ApprovalCard>
+                <CommentDetail author="Sam" timeAgo="Today at 4:25PM" content="Nice blog post"/>
+            </ApprovalCard>
+            <ApprovalCard/>
 
-    filterData(value)  {
-        this.setState({searchValue: value});
-    };
+            <ApprovalCard>
+                This is just text )
+                Are you shure you want to add it?
+            </ApprovalCard>
 
-
-    render() {
-
-        //state = {searchValue: ''};
-
-        return (
-            <div className="App">
-                <header className="App-header">
-                    <div>
-                        <input type="text" onChange={(event => this.filterData(event.target.value))}/>
-                    </div>
-                </header>
-                <body>
-                <FetchCompanies searchValue={this.state.searchValue}/>
-                </body>
-                <footer className="App-footer">
-                    <>
-                        <p>
-                            <Icon className="mail-icon" name="mail outline"/>
-                            If you have any questions, please feel free to contact us at
-                            professional-company@gmail.com
-                        </p>
-                    </>
-                </footer>
-            </div>
-        );
-    }
+            <CommentDetail author="Sam" timeAgo="Today at 4:35PM" content="Nice blog post"/>
+            <CommentDetail author="Sam" timeAgo="Today at 4:85PM" content="Nice blog post"/>
+            <CommentDetail author="Sam" timeAgo="Today at 4:95PM" content="Nice blog post"/>
+        </div>
+    </>
+    )
 }
-
 export default App;
-
-
-
